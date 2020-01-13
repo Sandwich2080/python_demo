@@ -1,2 +1,2 @@
-# python_demo
+# Project Introduction
 A python demo project
