@@ -9,13 +9,13 @@ def print_log(str_content):
     print(str_content)
 
 
-def http_get_test():
+def http_get_test(request_url):
     r""" http get test
 
     :return:
     """
 
-    request_url = 'https://api.github.com/repos/psf/requests'
+    # request_url = 'https://api.github.com/repos/psf/requests'
     print_log('request_url:' + request_url + '\n')
     r = requests.get(request_url)
 
@@ -25,9 +25,15 @@ def http_get_test():
         print_log(key + ':' + headers[key])
     print_log('\n')
 
+    content_type = headers['Content-Type']
+    if content_type.find('text/html') != -1:
+        print_log(r.text)
+    if content_type.find('application/json') != -1:
+        print_log(r.json())
+
     # print body content
-    json_response = r.json()
-    print_log(json_response)
+    # json_response = r.json()
+    # print_log(json_response)
 
     # print(headers)
     # print('Date:'+headers['Date'])
@@ -36,4 +42,5 @@ def http_get_test():
 
 
 # Http test
-http_get_test()
+http_get_test('https://api.github.com/repos/psf/requests')
+# http_get_test('https://www.baidu.com')
