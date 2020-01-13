@@ -30,6 +30,10 @@ def http_get_test(request_url):
         print_log(r.text)
     if content_type.find('application/json') != -1:
         print_log(r.json())
+    if 'application/json' in content_type:
+        print_log('Response body format is json')
+    else:
+        print_log('Response body is not json')
 
     # print body content
     # json_response = r.json()
@@ -43,4 +47,4 @@ def http_get_test(request_url):
 
 # Http test
 http_get_test('https://api.github.com/repos/psf/requests')
-# http_get_test('https://www.baidu.com')
+http_get_test('https://www.baidu.com')
