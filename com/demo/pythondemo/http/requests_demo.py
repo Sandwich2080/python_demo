@@ -33,7 +33,7 @@ def http_get_test(request_url, params):
     if 'application/json' in content_type:
         print_log('Response body format is json')
     else:
-        print_log('Response body is not json')
+        print_log('Response body format is not json')
 
     # print body content
     # json_response = r.json()
