@@ -1,15 +1,6 @@
 import requests
 
-IS_DEBUG = False
-
-
-def print_log(str_content):
-    r"""A custom log print method.
-
-    :param str_content: The content to print to console
-    """
-    if IS_DEBUG:
-        print(str_content)
+from com.demo.pythondemo.util.log_util import print_log
 
 
 def get(request_url, params=''):
