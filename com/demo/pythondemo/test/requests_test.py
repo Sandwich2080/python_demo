@@ -24,5 +24,55 @@ def test_get2():
         print_log('exception')
         return 'exception'
 
+
+def test_head():
+    r = requests.head('http://httpbin.org/get')
+    print_log(r.headers)
+
+
+def test_post_key_value():
+    payload = {'key1': 'value1', 'key2': 'value2'}
+    r = requests.post('http://httpbin.org/post', data=payload)
+    print_log(r.text)
+
+
+def test_post_str():
+    r = requests.post('http://httpbin.org/post', data='Hello,world')
+    print_log(r.text)
+
+
+def test_post_file():
+    files = {'files': open('../resources/files.md', 'rb')}
+    r = requests.post('http://httpbin.org/post', files=files)
+    print_log(r.text)
+
+
+def test_put():
+    payload = {'key1': 'value1', 'key2': 'value2', 'key3': 'value3'}
+    r = requests.put('http://httpbin.org/put', data=payload)
+    print_log(r.text)
+
+
+def test_patch():
+    payload = {'key1': 'value1_0'}
+    r = requests.patch('http://httpbin.org/patch', data=payload)
+    print_log(r.text)
+
+
+def test_request():
+    try:
+        r = requests.request('get', 'http://www.baidu.com', timeout=0.001)  # 30s timeout
+        print_log(r.text)
+    except:
+        print_log('Exception occurs.')
+
+
 # test_get()
 # test_get2()
+# test_head()
+# test_post_key_value()
+# test_post_str()
+# test_post_file()
+# test_put()
+# test_patch()
+test_request()
