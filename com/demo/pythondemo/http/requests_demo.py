@@ -9,7 +9,7 @@ def print_log(str_content):
     print(str_content)
 
 
-def http_get_test(request_url):
+def http_get_test(request_url, params):
     r""" http get test
 
     :return:
@@ -17,7 +17,7 @@ def http_get_test(request_url):
 
     # request_url = 'https://api.github.com/repos/psf/requests'
     print_log('request_url:' + request_url + '\n')
-    r = requests.get(request_url)
+    r = requests.get(request_url, params)
 
     # print headers
     headers = r.headers
@@ -46,5 +46,6 @@ def http_get_test(request_url):
 
 
 # Http test
-http_get_test('https://api.github.com/repos/psf/requests')
-http_get_test('https://www.baidu.com')
+# http_get_test('https://api.github.com/repos/psf/requests', params='')
+# http_get_test('https://www.baidu.com', params='')
+http_get_test('https://v.douyin.com/qmhAK6', params='')
