@@ -9,7 +9,7 @@ def print_log(str_content):
     print(str_content)
 
 
-def http_get_test(request_url, params):
+def get(request_url, params=''):
     r""" http get test
 
     :return:
@@ -25,15 +25,20 @@ def http_get_test(request_url, params):
         print_log(key + ':' + headers[key])
     print_log('\n')
 
-    content_type = headers['Content-Type']
+    content_type = ''
+    if 'Content-Type' in headers.keys():
+        content_type = headers['Content-Type']
+
     if content_type.find('text/html') != -1:
         print_log(r.text)
     if content_type.find('application/json') != -1:
         print_log(r.json())
-    if 'application/json' in content_type:
-        print_log('Response body format is json')
     else:
-        print_log('Response body format is not json')
+        print_log(r.text)
+
+    print_log('Content-Type: ' + content_type)
+
+    return r
 
     # print body content
     # json_response = r.json()
@@ -46,6 +51,6 @@ def http_get_test(request_url, params):
 
 
 # Http test
-# http_get_test('https://api.github.com/repos/psf/requests', params='')
-# http_get_test('https://www.baidu.com', params='')
-http_get_test('https://v.douyin.com/qmhAK6', params='')
+# get('https://api.github.com/repos/psf/requests', params='')
+# get('https://www.baidu.com', params='')
+# get('https://v.douyin.com/qmhAK6', params='')
