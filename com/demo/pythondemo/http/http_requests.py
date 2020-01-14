@@ -1,12 +1,15 @@
 import requests
 
+IS_DEBUG = False
+
 
 def print_log(str_content):
     r"""A custom log print method.
 
     :param str_content: The content to print to console
     """
-    # print(str_content)
+    if IS_DEBUG:
+        print(str_content)
 
 
 def get(request_url, params=''):
@@ -48,7 +51,6 @@ def get(request_url, params=''):
     # print('Date:'+headers['Date'])
     # print('Content-Type:'+headers['Content-Type'])
     # print('Transfer-Encoding:'+headers['Transfer-Encoding'])
-
 
 # Http test
 # get('https://api.github.com/repos/psf/requests', params='')
