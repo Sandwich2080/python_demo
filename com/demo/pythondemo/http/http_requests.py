@@ -6,7 +6,7 @@ def print_log(str_content):
 
     :param str_content: The content to print to console
     """
-    print(str_content)
+    # print(str_content)
 
 
 def get(request_url, params=''):
