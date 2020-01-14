@@ -9,3 +9,8 @@ def get_config():
 def get_ads():
     r = get('https://app.modaily.cn:8966/adv-appif-server/getStartPage?siteID=1')
     return r
+
+
+def get_ads_all():
+    r = get('https://app.modaily.cn:8966/adv-appif-server//getStartPagesAll?siteID=1')
+    return r

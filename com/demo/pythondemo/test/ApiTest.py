@@ -15,6 +15,10 @@ class MyTestCase(unittest.TestCase):
         r = get_ads()
         self.assertEqual(r.ok, True, msg='get_ads failed')
 
+    def test_get_ads_all(self):
+        r = get_ads_all()
+        self.assertEqual(r.ok, True, msg='get_ads_all failed')
+
 
 if __name__ == '__main__':
     unittest.main()
