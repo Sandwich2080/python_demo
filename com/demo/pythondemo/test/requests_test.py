@@ -61,6 +61,7 @@ def test_patch():
 
 def test_request():
     try:
+        # r = requests.request('get', 'http://www.baidu.com', timeout=30)  # 30s timeout
         r = requests.request('get', 'http://www.baidu.com', timeout=0.001)  # 30s timeout
         print_log(r.text)
     except:
